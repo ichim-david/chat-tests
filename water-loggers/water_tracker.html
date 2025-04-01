@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f0f8ff;
+        }
+
+        h1 {
+            color: #007bff;
+        }
+
+        input[type="number"] {
+            width: 100px;
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-right: 5px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #total {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Water Tracker</h1>
+    <label for="waterInput">Enter amount of water (ml):</label>
+    <input type="number" id="waterInput" placeholder="ml" min="0" aria-label="Water input">
+    <button onclick="addWater()">Add</button>
+    <button onclick="resetWater()">Reset</button>
+    <div id="total">Total Water Intake: 0 ml</div>
+
+    <script>
+        let totalWater = localStorage.getItem('totalWater') ? parseInt(localStorage.getItem('totalWater')) : 0;
+        updateTotalDisplay();
+
+        function addWater() {
+            const waterInput = document.getElementById('waterInput');
+            const waterAmount = parseInt(waterInput.value);
+            if (!isNaN(waterAmount) && waterAmount > 0) {
+                totalWater += waterAmount;
+                localStorage.setItem('totalWater', totalWater);
+                updateTotalDisplay();
+                waterInput.value = '';
+            } else {
+                alert('Please enter a valid amount of water.');
+            }
+        }
+
+        function resetWater() {
+            totalWater = 0;
+            localStorage.removeItem('totalWater');
+            updateTotalDisplay();
+        }
+
+        function updateTotalDisplay() {
+            document.getElementById('total').innerText = `Total Water Intake: ${totalWater} ml`;
+        }
+    </script>
+</body>
+
+</html>
