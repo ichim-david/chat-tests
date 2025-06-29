@@ -1,0 +1,12 @@
+{
+  "name": "llm-judge-amp",
+  "version": "1.0.0",
+  "description": "Code judging tool using LLM",
+  "main": "index.ts",
+  "scripts": {
+    "start": "bun run index.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.7"
+  }
+}

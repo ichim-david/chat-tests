@@ -1,0 +1,24 @@
+{
+  "name": "llm-judge-augment",
+  "version": "1.0.0",
+  "description": "LLM-based code judging system using TypeScript and Bun",
+  "main": "judge.ts",
+  "scripts": {
+    "judge": "bun run judge.ts",
+    "test": "bun run test-scenarios.ts",
+    "example": "bun run example-function-judge.ts"
+  },
+  "keywords": [
+    "llm",
+    "judge",
+    "code",
+    "evaluation",
+    "typescript",
+    "bun"
+  ],
+  "author": "David Ichim",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^24.0.7"
+  }
+}

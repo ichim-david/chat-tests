@@ -1,0 +1,25 @@
+function calculateSum(a, b) {
+    return a + b;
+}
+
+const users = [
+    { name: "Alice", age: 30 },
+    { name: "Bob", age: 25 }
+];
+
+function findUser(name) {
+    for (let i = 0; i < users.length; i++) {
+        if (users[i].name === name) {
+            return users[i];
+        }
+    }
+    return null;
+}
+
+const result = calculateSum(5, 10);
+console.log("Result:", result);
+
+const user = findUser("Alice");
+if (user) {
+    console.log("Found user:", user.name, "age:", user.age);
+}
